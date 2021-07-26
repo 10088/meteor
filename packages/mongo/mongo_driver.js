@@ -837,7 +837,7 @@ MongoConnection.prototype._ensureIndex = function (collectionName, index,
   // so we don't interact with the write fence.
   var collection = self.rawCollection(collectionName);
   var future = new Future;
-  var indexName = collection.ensureIndex(index, options, future.resolver());
+  var indexName = collection.createIndex(index, options, future.resolver());
   future.wait();
 };
 MongoConnection.prototype._dropIndex = function (collectionName, index) {
